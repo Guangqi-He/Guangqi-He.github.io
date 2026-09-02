@@ -14,7 +14,8 @@ body {
 
 h1 {
     font-size: 36px;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
 }
 
 h2 {
@@ -32,34 +33,52 @@ a:hover {
     text-decoration: underline;
 }
 
-
 /* Profile */
-
 .profile {
-    display: flex;
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
     gap: 35px;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
-.profile-text {
-    flex: 1;
+.profile-photo {
+    min-height: 100%;
 }
 
 .profile-photo img {
-    width: 180px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 5px;
 }
 
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+}
+
+.profile-text p {
+    margin: 10px 0;
+}
+
+.profile-text .position {
+    margin-top: 4px;
+}
+
+.profile-links {
+    margin-bottom: 0 !important;
+}
 
 /* News */
-
 .news li {
     margin-bottom: 7px;
 }
 
-
 /* Publications */
-
 .publication {
     display: flex;
     gap: 25px;
@@ -87,13 +106,20 @@ a:hover {
     font-weight: bold;
 }
 
-
 /* Mobile */
-
 @media (max-width: 700px) {
-
     .profile {
-        flex-direction: column-reverse;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .profile-photo {
+        max-width: 280px;
+    }
+
+    .profile-photo img {
+        height: auto;
+        aspect-ratio: 4 / 5;
     }
 
     .publication {
